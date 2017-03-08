@@ -6,18 +6,23 @@ function statusChangeCallback(response) {
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
+        document.getElementById('status').style.visibility = 'hidden';
         // Logged into your app and Facebook.
-        testAPI();
+        //testAPI();
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into this app.';
+        document.getElementById('status').style.visibility = 'visible';
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
-        document.getElementById('status').innerHTML = 'Please log ' +
-            'into Facebook.';
+        document.getElementById('status').style.visibility = 'visible';
     }
+}
+
+function Login() {
+    FB.login(function (response) {
+        statusChangeCallback(response);
+    })
 }
 
 //                    FB.login();

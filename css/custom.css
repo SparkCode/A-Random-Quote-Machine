@@ -4,9 +4,17 @@
 
 .form-action {
     text-align: center;
+    margin: 30px;
 }
 
 .bg-primary {
-    padding: 10px;
-    padding-left: 20px;
+    padding: 10px 10px 10px 20px;
+}
+
+#status {
+    visibility: hidden;
+}
+
+.container-fluid {
+    background-color: #1b6d85;
 }
