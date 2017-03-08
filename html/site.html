@@ -3,16 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../css/custom.css">
     <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script type="text/javascript" src="../js/custom.js"></script>
     <script>
         $(document).ready(function() {
             $(document).ready(function() {
                 $.ajaxSetup({ cache: true });
                 $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
                     FB.init({
-                        appId: '{your-app-id}',
+                        appId: '872607269469287',
                         version: 'v2.7'
+                    });
+                    FB.getLoginStatus(function(response) {
+                        statusChangeCallback(response);
                     });
                 });
             });
@@ -20,6 +26,19 @@
     </script>
 </head>
 <body>
+<div class="container-fluid">
+    <p class="bg-primary" id="status">to get started please log in Facebook <button class="btn">login</button>
+    </p>
+
+    <img class="img-responsive center-block" src="https://s-media-cache-ak0.pinimg.com/564x/84/5d/a3/845da38cc6b2a502460bea3b47f6c276.jpg">
+    <div class="center-block form-action">
+        <button class="btn btn-lg" id="share">share</button>
+        <button class="btn btn-lg" id="next">next</button>
+    </div>
+
+</div>
 </body>
 </html>
+
+
 

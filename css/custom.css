@@ -1,0 +1,12 @@
+.container-fluid{
+    max-width: 700px;
+}
+
+.form-action {
+    text-align: center;
+}
+
+.bg-primary {
+    padding: 10px;
+    padding-left: 20px;
+}
