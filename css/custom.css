@@ -9,12 +9,19 @@
 
 .bg-primary {
     padding: 10px 10px 10px 20px;
+
+}
+
+.jumbotron p {
+    font-size: 18px;
+}
+
+.jumbotron {
+    padding-top: 5px;
+    padding-bottom: 5px;
+
 }
 
 #status {
-    visibility: hidden;
-}
-
-.container-fluid {
-    background-color: #1b6d85;
+    display: none;
 }

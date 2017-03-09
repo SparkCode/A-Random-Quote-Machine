@@ -27,14 +27,17 @@
 </head>
 <body>
 <div class="container-fluid">
-    <p class="bg-primary" id="status">Please log into Facebook <button class="btn" onclick="Login()">login</button></p>
-
-    <img class="img-responsive center-block" id="wise-quote" src="https://s-media-cache-ak0.pinimg.com/564x/84/5d/a3/845da38cc6b2a502460bea3b47f6c276.jpg">
-    <div id="next-url" hidden></div>
-    <div id="source" hidden></div>
-    <div class="center-block form-action">
-        <button class="btn btn-success btn-lg" id="share" onclick="share()">Share</button>
-        <button class="btn btn-primary btn-lg" id="next" onclick="showNextQuote()">Next</button>
+    <div class="jumbotron">
+        <h1 class="text-center">A Random Quote Machine</h1>
+        <p class="bg-primary" id="status">Please log into Facebook to get started <button class="btn btn-success" onclick="Login()">Login</button></p>
+        <!---->
+        <img class="img-responsive center-block" id="wise-quote" src="">
+        <div id="next-url" hidden></div>
+        <div id="source" hidden></div>
+        <div class="center-block form-action">
+            <button class="btn btn-success btn-lg" id="share" onclick="share()">Share</button>
+            <button class="btn btn-primary btn-lg" id="next" onclick="showNextQuote()">Next</button>
+        </div>
     </div>
 </div>
 </body>

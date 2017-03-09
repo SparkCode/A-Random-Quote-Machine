@@ -6,16 +6,19 @@ function statusChangeCallback(response) {
     // Full docs on the response object can be found in the documentation
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
-        document.getElementById('status').style.visibility = 'hidden';
+        document.getElementById('status').style.display = "none";
+        document.getElementById('next').disabled = "";
         // Logged into your app and Facebook.
         //testAPI();
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
-        document.getElementById('status').style.visibility = 'visible';
+        document.getElementById('next').disabled = "disabled";
+        document.getElementById('status').style.display = "inline";
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
-        document.getElementById('status').style.visibility = 'visible';
+        document.getElementById('next').disabled = "disabled";
+        document.getElementById('status').style.display = "block";
     }
 }
 
@@ -59,3 +62,9 @@ function share() {
         + document.URL;
     window.open(url);
 }
+
+$(document).ready(function () {
+    // default value
+    document.getElementById('wise-quote').src = 'https://scontent-frt3-1.xx.fbcdn.net/v/t1.0-9/16640764_1435876939776376_2375711762220921804_n.jpg?oh=175e7fb0a5ab3f92ea1518bf4514e1ba&oe=5972EED0';
+    document.getElementById('source').value = 'https://www.facebook.com/WQ2010/photos/a.127620683935348.14126.127603680603715/1435876939776376/?type=3&theater';
+})
