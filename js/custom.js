@@ -40,11 +40,22 @@ function showNextQuote() {
     var url = document.getElementById("next-url").value;
     if (url === undefined)
     {
-        url = "/127620683935348/photos?fields=images&limit=1";
+        url = "/127620683935348/photos?fields=images,link&limit=1";
     }
     getData(url, function (response) {
         document.getElementById('wise-quote').src = response.data[0].images[0].source;
         document.getElementById("next-url").value = response.paging.next;
+        document.getElementById("source").value = response.data[0].link;
     });
+}
 
+function share() {
+    var source = document.getElementById("source").value;
+    var url = "https://twitter.com/intent/tweet?text="
+        + encodeURI("Wise words is here:\n")
+        + source
+        + encodeURI("\nFor more visit our website:\n")
+        + "?url="
+        + document.URL;
+    window.open(url);
 }
