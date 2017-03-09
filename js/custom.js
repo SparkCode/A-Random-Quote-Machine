@@ -1,4 +1,4 @@
-function statusChangeCallback(response) {
+function statusChangeCallback(response, callback) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -8,12 +8,13 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
         document.getElementById('status').style.display = "none";
         document.getElementById('next').disabled = "";
+        callback();
         // Logged into your app and Facebook.
         //testAPI();
     } else if (response.status === 'not_authorized') {
         // The person is logged into Facebook, but not your app.
         document.getElementById('next').disabled = "disabled";
-        document.getElementById('status').style.display = "inline";
+        document.getElementById('status').style.display = "block";
     } else {
         // The person is not logged into Facebook, so we're not sure if
         // they are logged into this app or not.
@@ -29,14 +30,18 @@ function Login() {
 }
 
 function getData(url, callback) {
-    FB.api(url, {access_token : FB.getAuthResponse},
-        function (response) {
-            console.log(response);
-            callback(response);
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response, function () {
+            FB.api(url, {access_token : FB.getAuthResponse},
+                function (response) {
+                    console.log(response);
+                    callback(response);
 
-            if (response && !response.error) {
-                console.log(response);
-            }});
+                    if (response && !response.error) {
+                        console.log(response);
+                    }});
+        });
+    });
 }
 
 function showNextQuote() {
