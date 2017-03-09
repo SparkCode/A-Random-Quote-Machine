@@ -25,16 +25,26 @@ function Login() {
     })
 }
 
-//                    FB.login();
-//                    FB.getLoginStatus(function(response) {
-//                        FB.api("/127620683935348/photos?fields=images", {access_token : FB.getAuthResponse},
-//                            function (response) {
-//                                console.log(response);
-////                            if (response && !response.error) {
-////                                console.log(response);
-////                            }
-//                            }
-//                        );
-//
-//                    });
-// https://developers.facebook.com/docs/facebook-login/web
+function getData(url, callback) {
+    FB.api(url, {access_token : FB.getAuthResponse},
+        function (response) {
+            console.log(response);
+            callback(response);
+
+            if (response && !response.error) {
+                console.log(response);
+            }});
+}
+
+function showNextQuote() {
+    var url = document.getElementById("next-url").value;
+    if (url === undefined)
+    {
+        url = "/127620683935348/photos?fields=images&limit=1";
+    }
+    getData(url, function (response) {
+        document.getElementById('wise-quote').src = response.data[0].images[0].source;
+        document.getElementById("next-url").value = response.paging.next;
+    });
+
+}

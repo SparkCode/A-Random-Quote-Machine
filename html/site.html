@@ -29,10 +29,11 @@
 <div class="container-fluid">
     <p class="bg-primary" id="status">Please log into Facebook <button class="btn" onclick="Login()">login</button></p>
 
-    <img class="img-responsive center-block" src="https://s-media-cache-ak0.pinimg.com/564x/84/5d/a3/845da38cc6b2a502460bea3b47f6c276.jpg">
+    <img class="img-responsive center-block" id="wise-quote" src="https://s-media-cache-ak0.pinimg.com/564x/84/5d/a3/845da38cc6b2a502460bea3b47f6c276.jpg">
+    <div id="next-url" hidden></div>
     <div class="center-block form-action">
         <button class="btn btn-success btn-lg" id="share">Share</button>
-        <button class="btn btn-primary btn-lg" id="next">Next</button>
+        <button class="btn btn-primary btn-lg" id="next" onclick="showNextQuote()">Next</button>
     </div>
 </div>
 </body>
